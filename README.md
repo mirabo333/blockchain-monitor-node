@@ -1,4 +1,4 @@
-# Metadium Block Explorer
+# BlockChain Sync Project
 
 ## 소개
 
