@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite" // SQLite를 사용하는 경우
+  url      = "file:./dev.db"
+}
+
+model Block {
+  id                Int      @id @default(autoincrement())
+  number            String  @unique     
+  baseFeePerGas     String
+  difficulty        String
+  extraData         String
+  gasLimit          String
+  gasUsed           String
+  hash              String @unique
+  logsBloom         String
+  miner             String
+  mixHash           String
+  nonce             String
+  parentHash        String
+  receiptsRoot      String
+  sha3Uncles        String
+  size              String
+  stateRoot         String
+  timestamp         String
+  totalDifficulty   String
+  transactions      String
+  transactionsRoot  String
+  uncles            String
+}
+
+model Transaction {
+  id              Int     @id @default(autoincrement())
+  hash            String  @unique
+  nonce           String
+  blockHash       String
+  blockNumber     String     // 포함된 블록 번호
+  transactionIndex String
+  from            String
+  to              String?
+  value           String
+  gasPrice        String
+  gas             String
+  input           String? // 스마트 컨트랙트 호출 데이터
+  type            String
+  r               String
+  s               String
+  v               String
+}
+
+model Receipt {
+  id              Int     @id @default(autoincrement())
+  transactionHash String  @unique
+  blockHash       String
+  blockNumber     String
+  cumulativeGasUsed String
+  from            String
+  to              String?
+  contractAddress String?
+  gasUsed         String
+  logs            String?
+  logsBloom       String
+  status          String
+  transactionIndex String
+  effectiveGasPrice String?
+  type String?
+}
