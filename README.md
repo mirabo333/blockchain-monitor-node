@@ -1,15 +1,24 @@
-# BlockChain Sync Project
+# BlockChain Sync Server Overview
 
 ## 소개
 
-이더리움 기반 Metadium 블록체인의 블록, 트랜잭션, 영수증 데이터를 실시간으로 수집하고 저장하는 크롤러 프로젝트입니다.
+1. WebSocket 연결로 실시간 데이터 모니터일
+2. 데이터 수집
 
-## 주요 기능
+- Block
+- Transaction
+- Receipt
 
-- WebSocket을 통한 실시간 블록 모니터링
-- 블록, 트랜잭션, 영수증 데이터 자동 수집
-- SQLite 데이터베이스에 데이터 저장
-- BigInt 값 자동 변환 및 데이터 정규화
+3. Prisma ORM을 통한 SQLite에 저장
+4. Winston logger로 모니터링
+
+## Key Features
+
+- 실시간 블록체인 데이터 동기화
+- 자동 재연결 및 에러 복구
+- BigInt 데이터 자동 변환
+- 구조화된 데이터 저장
+- 로깅 및 모니터링
 
 ## 기술 스택
 
